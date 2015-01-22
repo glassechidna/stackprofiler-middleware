@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.1'
   spec.authors       = ['Aidan Steele']
   spec.email         = ['aidan.steele@glassechidna.com.au']
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.summary       = %q{Rack middleware for the Stackprofiler profiling gem.}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
