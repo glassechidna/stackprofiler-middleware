@@ -1,4 +1,4 @@
-require 'stackprof'
+require 'stackprofx'
 require 'rack'
 
 module Stackprofiler
@@ -27,7 +27,7 @@ module Stackprofiler
     def call(env)
       if @predicate.call(env)
         out = nil
-        profile = StackProf.run(@stackprof_opts) { out = @app.call env }
+        profile = StackProfx.run(@stackprof_opts) { out = @app.call env }
 
         Thread.new do
           profile[:name] = Rack::Request.new(env).fullpath
