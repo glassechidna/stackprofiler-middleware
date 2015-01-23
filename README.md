@@ -52,7 +52,7 @@ elsewhere. This is to make it easier to profile requests that don't return
 visible results, e.g. XHR.
 
 Once you have profiled a request or two, you can head over to Stackprofiler's
-GUI. This is probably at [http://localhost:9292/][4]. Read
+GUI. This is probably at [http://localhost:9260/][4]. Read
 Stackprofiler's README to see how this web UI works.
 
 ### Data collection configuration
@@ -65,6 +65,7 @@ changing them is easy enough:
 config.middleware.use Stackprofiler::Middleware {
   predicate: /profile=true/, # regex form for urls to be profiled
   predicate: proc {|env| true }, # callable form for greater flexibility than regex
+  ui_url: 'http://localhost:9260/receive'
   stackprof: { # options to be passed directly through to stackprof, e.g.:
     interval: 1000 # sample every n micro-seconds
   }
@@ -82,4 +83,4 @@ config.middleware.use Stackprofiler::Middleware {
 [1]: https://github.com/glassechidna/stackprofiler
 [2]: http://rack.github.io/
 [3]: https://github.com/tmm1/stackprof
-[4]: http://localhost:9292/
+[4]: http://localhost:9260/
