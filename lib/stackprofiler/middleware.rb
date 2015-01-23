@@ -30,6 +30,8 @@ module Stackprofiler
         profile = StackProfx.run(@stackprof_opts) { out = @app.call env }
 
         Thread.new do
+          iseq = RubyVM::InstructionSequence::of @app.method(:call)
+          profile[:suggested_rebase] = iseq.object_id
           profile[:name] = Rack::Request.new(env).fullpath
 
           url = URI::parse ui_url
