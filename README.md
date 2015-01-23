@@ -4,10 +4,6 @@ Please read the [`stackprofiler`][1] gem README for background on Stackprofiler
 in general.
 
 This is a [Rack][2] middleware that makes benchmarking of Rack apps a breeze.
-
-much more fluid experience and provide a quicker turn-around time. It does
-this by passing along Pry's linebuffer to the Stackprofiler server so that
-code needn't be stored in the file system for Stackprofiler to annotate.
 It utilises a fork of the the brilliant [`stackprof`][3] to enable low-overhead
 sampling of Ruby processes.
 
