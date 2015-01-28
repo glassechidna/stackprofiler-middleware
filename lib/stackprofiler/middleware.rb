@@ -20,8 +20,9 @@ module Stackprofiler
         end
       end
 
+      default_opts = {mode: :wall, interval: 1000, raw: true, threads: [Thread.current]}
+      @stackprof_opts = default_opts.merge(options[:stackprof] || {})
       @ui_url = options[:ui_url] || ENV['PRY_STACKPROFILER_UI_URL']
-      @stackprof_opts = {mode: :wall, interval: 1000, raw: true}.merge(options[:stackprof] || {})
     end
 
     def call(env)
